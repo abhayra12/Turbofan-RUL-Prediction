@@ -72,8 +72,9 @@ gcloud run deploy ${SERVICE_NAME} \
     --max-instances 10 \
     --min-instances 0 \
     --allow-unauthenticated \
-    --set-env-vars "ENVIRONMENT=production" \
-    --quiet
+    --set-env-vars "ENVIRONMENT=production,PORT=8000" \
+    --no-cpu-throttling \
+    --concurrency 80
 
 echo "✓ Service deployed to Cloud Run"
 

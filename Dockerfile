@@ -51,9 +51,6 @@ USER appuser
 # Expose port
 EXPOSE 8000
 
-# Health check - simplified to avoid startup delays
-HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=2 \
-    CMD python -c "import urllib.request; urllib.request.urlopen('http://localhost:8000/health', timeout=3)" || exit 1
-
 # Run the application
+# Note: HEALTHCHECK removed - Cloud Run manages health checks via its own mechanism
 CMD ["uvicorn", "predict:app", "--host", "0.0.0.0", "--port", "8000"]
