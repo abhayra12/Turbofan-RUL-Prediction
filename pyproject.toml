@@ -41,6 +41,14 @@ cloud = [
 requires = ["setuptools>=68.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
+[tool.setuptools]
+py-modules = ["train", "predict", "test"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = []
+exclude = ["data*", "models*", "deployment*", "docs*", "scripts*", ".venv*", "*.egg-info"]
+
 [tool.black]
 line-length = 100
 target-version = ['py39', 'py310', 'py311']
