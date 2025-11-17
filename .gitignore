@@ -67,6 +67,8 @@ logs/
 *-credentials.json
 *-creds.json
 .gcloud/
+gcp/
+google-cloud-sdk/
 
 # Docker
 docker-compose.override.yml

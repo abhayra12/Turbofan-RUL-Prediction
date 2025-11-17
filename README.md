@@ -612,6 +612,16 @@ curl -X POST https://turbofan-rul-prediction-475595793642.us-central1.run.app/pr
 
 **More details**: [deployment/README.md](deployment/README.md)
 
+#### Deployment Screenshots
+
+**Model Deployed on Google Cloud Run:**
+
+![Model GCP Deployed](screenshots/model-gcp-deployed.png)
+
+**API Service Test - Cloud Run:**
+
+![API Cloud Run Service Test](screenshots/api-cloud-run-service-test.png)
+
 ---
 
 ## 🛠️ Development
