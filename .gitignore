@@ -34,8 +34,8 @@ venv.bak/
 .ipynb_checkpoints
 *.ipynb_checkpoints/
 
-# Models
-*.pkl
+# Models (keep .pkl files — they are trained models needed for production)
+# *.pkl  # Required for deployment
 *.pickle
 *.joblib
 *.h5
