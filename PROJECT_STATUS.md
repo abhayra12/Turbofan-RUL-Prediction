@@ -9,8 +9,8 @@
 
 ## 🚀 Live Deployment
 
-**Service URL:** https://turbofan-rul-prediction-475595793642.us-central1.run.app  
-**API Docs:** https://turbofan-rul-prediction-475595793642.us-central1.run.app/docs  
+**Service URL:** https://turbofan-rul-prediction-4zi32kcrrq-uc.a.run.app  
+**API Docs:** https://turbofan-rul-prediction-4zi32kcrrq-uc.a.run.app/docs  
 **Platform:** Google Cloud Run (us-central1)
 
 ### Deployment Specifications
@@ -91,15 +91,15 @@ curl http://localhost:8002/health
 ### Cloud Run Production Testing
 ```bash
 # Health Check
-curl https://turbofan-rul-prediction-475595793642.us-central1.run.app/health
+curl https://turbofan-rul-prediction-4zi32kcrrq-uc.a.run.app/health
 # ✓ Status: healthy
 
 # Model Info
-curl https://turbofan-rul-prediction-475595793642.us-central1.run.app/model/info
+curl https://turbofan-rul-prediction-4zi32kcrrq-uc.a.run.app/model/info
 # ✓ Model: XGBoost, RMSE: 46.82
 
 # Prediction
-curl -X POST https://turbofan-rul-prediction-475595793642.us-central1.run.app/predict \
+curl -X POST https://turbofan-rul-prediction-4zi32kcrrq-uc.a.run.app/predict \
   -H "Content-Type: application/json" \
   -d '{...sensor data...}'
 # ✓ Predicted RUL: 187.19 cycles

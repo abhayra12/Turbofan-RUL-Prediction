@@ -592,25 +592,43 @@ gcloud run deploy turbofan-rul-prediction \
 
 #### Post-Deployment
 
-**🎉 Live Service**: [https://turbofan-rul-prediction-475595793642.us-central1.run.app](https://turbofan-rul-prediction-475595793642.us-central1.run.app)
+**🎉 Live Service**: [https://turbofan-rul-prediction-4zi32kcrrq-uc.a.run.app](https://turbofan-rul-prediction-4zi32kcrrq-uc.a.run.app)
 
-**API Documentation**: [https://turbofan-rul-prediction-475595793642.us-central1.run.app/docs](https://turbofan-rul-prediction-475595793642.us-central1.run.app/docs)
+**API Documentation**: [https://turbofan-rul-prediction-4zi32kcrrq-uc.a.run.app/docs](https://turbofan-rul-prediction-4zi32kcrrq-uc.a.run.app/docs)
 
 Test deployment:
 ```bash
 # Health check
-curl https://turbofan-rul-prediction-475595793642.us-central1.run.app/health
+curl https://turbofan-rul-prediction-4zi32kcrrq-uc.a.run.app/health
 
 # Model info
-curl https://turbofan-rul-prediction-475595793642.us-central1.run.app/model/info
+curl https://turbofan-rul-prediction-4zi32kcrrq-uc.a.run.app/model/info
 
 # Make prediction
-curl -X POST https://turbofan-rul-prediction-475595793642.us-central1.run.app/predict \
+curl -X POST https://turbofan-rul-prediction-4zi32kcrrq-uc.a.run.app/predict \
   -H "Content-Type: application/json" \
   -d '{"unit_id":1,"time_cycles":100,"setting_1":0.0023,"setting_2":0.0003,"setting_3":100.0,"sensor_1":518.67,"sensor_2":641.82,"sensor_3":1589.70,"sensor_4":1400.60,"sensor_5":14.62,"sensor_6":21.61,"sensor_7":554.36,"sensor_8":2388.02,"sensor_9":9046.19,"sensor_10":1.30,"sensor_11":47.47,"sensor_12":521.66,"sensor_13":2388.02,"sensor_14":8138.62,"sensor_15":8.4195,"sensor_16":0.03,"sensor_17":392,"sensor_18":2388,"sensor_19":100.0,"sensor_20":39.06,"sensor_21":23.4190}'
 ```
 
 **More details**: [deployment/README.md](deployment/README.md)
+
+#### Viewing in GCP Console
+
+To view and manage your deployed service:
+
+1. **Go to GCP Console**: https://console.cloud.google.com/run
+2. **Select your project**: `upgrade-478511`
+3. **Region**: `us-central1`
+4. **Service**: Click on `turbofan-rul-prediction`
+
+From here you can:
+- View logs and metrics
+- Manage revisions
+- Configure autoscaling
+- Monitor requests and errors
+- Update environment variables
+
+**Direct Link**: [GCP Cloud Run Console](https://console.cloud.google.com/run?project=upgrade-478511)
 
 #### Deployment Screenshots
 
