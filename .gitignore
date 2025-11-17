@@ -77,3 +77,4 @@ docker-compose.override.yml
 tmp/
 temp/
 *.tmp
+LINKEDIN_POST.md

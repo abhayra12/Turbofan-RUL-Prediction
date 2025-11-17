@@ -24,7 +24,7 @@ A production-ready machine learning system for predicting the Remaining Useful L
 - [Docker Deployment](#-docker-deployment)
 - [Cloud Deployment](#-cloud-deployment)
 - [Development](#-development)
-- [Project Evaluation Criteria](#-project-evaluation-criteria)
+- [Additional Documentation](#-additional-documentation)
 - [Contributing](#-contributing)
 - [License](#-license)
 
@@ -676,56 +676,6 @@ jupyter notebook notebook.ipynb
 
 ---
 
-## ✅ Project Evaluation Criteria
-
-This project fulfills all ML Zoomcamp midterm project requirements:
-
-### ✅ Problem Description (2/2 points)
-- **Documented**: Clear business context, problem statement, and solution approach
-- **Context**: Explained use cases and real-world application
-
-### ✅ EDA (2/2 points)
-- **Basic**: Missing value analysis, data types, distributions
-- **Extensive**: Feature importance, correlations, time series analysis, visualization
-
-### ✅ Model Training (3/3 points)
-- **Multiple Models**: 5 different algorithms (Linear, Ridge, Random Forest, GB, XGBoost)
-- **Hyperparameter Tuning**: GridSearchCV with cross-validation
-- **Parameter Tuning**: Optimized n_estimators, max_depth, learning_rate, subsample
-
-### ✅ Exporting Notebook to Script (1/1 point)
-- **train.py**: Complete training logic extracted from notebook
-- **Reproducible**: Can be run independently
-
-### ✅ Reproducibility (1/1 point)
-- **Executable**: Notebook and script run without errors
-- **Data Access**: Clear download instructions and automation
-- **Documentation**: Step-by-step setup guide
-
-### ✅ Model Deployment (1/1 point)
-- **Framework**: FastAPI web service
-- **Endpoints**: Multiple REST API endpoints
-- **Production Ready**: Error handling, logging, health checks
-
-### ✅ Dependency and Environment Management (2/2 points)
-- **Dependencies**: pyproject.toml with all dependencies
-- **Virtual Environment**: UV-based venv setup
-- **Instructions**: Clear setup and activation steps in README
-
-### ✅ Containerization (2/2 points)
-- **Dockerfile**: Multi-stage optimized Docker build
-- **Documentation**: README explains how to build and run container
-- **Scripts**: Automated build and run scripts
-
-### ✅ Cloud Deployment (2/2 points)
-- **Code**: Deployment scripts for GCP Cloud Run
-- **Documentation**: Comprehensive deployment guide
-- **Testing**: Can be deployed and tested on cloud
-
-**Total: 16/16 points** ✅
-
----
-
 ## 📖 Additional Documentation
 
 - [Data Documentation](data/README.md) - Dataset details and structure
@@ -763,8 +713,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📧 Contact
 
+**Author**: Abhay Ahirkar  
+**Email**: abhayahirkar2@gmail.com  
+**GitHub**: [@abhayra12](https://github.com/abhayra12)  
 **Project**: ML Zoomcamp 2025 Midterm Project  
-**Author**: ML Zoomcamp Participant  
 **Course**: [Machine Learning Zoomcamp](https://github.com/DataTalksClub/machine-learning-zoomcamp)
 
 ---
