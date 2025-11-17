@@ -72,7 +72,7 @@ gcloud run deploy ${SERVICE_NAME} \
     --max-instances 10 \
     --min-instances 0 \
     --allow-unauthenticated \
-    --set-env-vars "ENVIRONMENT=production,PORT=8000" \
+    --set-env-vars "ENVIRONMENT=production" \
     --no-cpu-throttling \
     --concurrency 80
 
