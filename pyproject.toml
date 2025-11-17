@@ -1,0 +1,57 @@
+[project]
+name = "turbofan-rul-prediction"
+version = "1.0.0"
+description = "Turbofan Engine Remaining Useful Life Prediction using Machine Learning"
+authors = [
+    {name = "ML Zoomcamp 2025", email = "ml-zoomcamp@example.com"}
+]
+readme = "README.md"
+requires-python = ">=3.9,<3.12"
+
+dependencies = [
+    "pandas>=2.0.0",
+    "numpy>=1.24.0",
+    "scikit-learn>=1.3.0",
+    "xgboost>=2.0.0",
+    "fastapi>=0.104.0",
+    "uvicorn[standard]>=0.24.0",
+    "pydantic>=2.0.0",
+    "matplotlib>=3.7.0",
+    "seaborn>=0.12.0",
+    "jupyter>=1.0.0",
+    "notebook>=7.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+    "black>=23.7.0",
+    "isort>=5.12.0",
+    "flake8>=6.1.0",
+]
+
+cloud = [
+    "google-cloud-run>=0.10.0",
+    "google-cloud-storage>=2.10.0",
+    "google-auth>=2.23.0",
+]
+
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.black]
+line-length = 100
+target-version = ['py39', 'py310', 'py311']
+include = '\.pyi?$'
+
+[tool.isort]
+profile = "black"
+line_length = 100
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+python_functions = "test_*"
+addopts = "-v --cov=. --cov-report=html --cov-report=term"
