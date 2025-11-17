@@ -555,9 +555,25 @@ docker ps
 
 ---
 
-## ☁️ Cloud Deployment
+## ☁️ Cloud Deployment with GCP
 
-### Google Cloud Run Deployment
+### 🏗️ Google Cloud Build + ☁️ Cloud Run Deployment
+
+This project leverages **Google Cloud Build** for automated containerization and **Google Cloud Run** for serverless deployment.
+
+#### Architecture
+
+```
+GitHub Repository
+      ↓
+   🏗️ Cloud Build (builds Docker image)
+      ↓
+   🐳 Container Registry (stores image)
+      ↓
+   ☁️ Cloud Run (runs containerized service)
+      ↓
+   🌐 Live API endpoint
+```
 
 #### Prerequisites
 
@@ -565,12 +581,19 @@ docker ps
 2. Service account with required permissions
 3. gcloud CLI installed
 
-#### Automated Deployment
+#### Automated Deployment (Recommended)
 
 ```bash
 cd deployment
 ./deploy_gcp.sh
 ```
+
+**What this does:**
+- 🏗️ Triggers Cloud Build to build Docker image from repository
+- 📦 Pushes image to Google Container Registry
+- ☁️ Deploys to Cloud Run with optimized settings
+- ✅ Configures automatic health checks
+- 🔄 Enables autoscaling
 
 #### Manual Deployment
 
@@ -579,56 +602,73 @@ cd deployment
 gcloud auth activate-service-account --key-file=deployment/gcp-credentials.json
 gcloud config set project upgrade-478511
 
-# Build and push
+# Option 1: Use Cloud Build (recommended for production)
 gcloud builds submit --tag gcr.io/upgrade-478511/turbofan-rul-prediction
 
-# Deploy to Cloud Run
+# Option 2: Direct deployment (development)
 gcloud run deploy turbofan-rul-prediction \
-  --image gcr.io/upgrade-478511/turbofan-rul-prediction \
+  --source . \
   --platform managed \
   --region us-central1 \
-  --allow-unauthenticated
+  --allow-unauthenticated \
+  --no-cpu-throttling \
+  --concurrency 80
 ```
 
-#### Post-Deployment
+#### Post-Deployment Verification
 
 **🎉 Live Service**: [https://turbofan-rul-prediction-4zi32kcrrq-uc.a.run.app](https://turbofan-rul-prediction-4zi32kcrrq-uc.a.run.app)
 
-**API Documentation**: [https://turbofan-rul-prediction-4zi32kcrrq-uc.a.run.app/docs](https://turbofan-rul-prediction-4zi32kcrrq-uc.a.run.app/docs)
+**📖 API Documentation**: [https://turbofan-rul-prediction-4zi32kcrrq-uc.a.run.app/docs](https://turbofan-rul-prediction-4zi32kcrrq-uc.a.run.app/docs)
 
-Test deployment:
+**Test deployment:**
 ```bash
-# Health check
+# ✅ Health check
 curl https://turbofan-rul-prediction-4zi32kcrrq-uc.a.run.app/health
 
-# Model info
+# 📊 Model info
 curl https://turbofan-rul-prediction-4zi32kcrrq-uc.a.run.app/model/info
 
-# Make prediction
+# 🔮 Make prediction
 curl -X POST https://turbofan-rul-prediction-4zi32kcrrq-uc.a.run.app/predict \
   -H "Content-Type: application/json" \
   -d '{"unit_id":1,"time_cycles":100,"setting_1":0.0023,"setting_2":0.0003,"setting_3":100.0,"sensor_1":518.67,"sensor_2":641.82,"sensor_3":1589.70,"sensor_4":1400.60,"sensor_5":14.62,"sensor_6":21.61,"sensor_7":554.36,"sensor_8":2388.02,"sensor_9":9046.19,"sensor_10":1.30,"sensor_11":47.47,"sensor_12":521.66,"sensor_13":2388.02,"sensor_14":8138.62,"sensor_15":8.4195,"sensor_16":0.03,"sensor_17":392,"sensor_18":2388,"sensor_19":100.0,"sensor_20":39.06,"sensor_21":23.4190}'
 ```
 
-**More details**: [deployment/README.md](deployment/README.md)
+#### Deployment Services
+
+| Service | Purpose | Status |
+|---------|---------|--------|
+| 🏗️ **Cloud Build** | Automated Docker image building | ✅ Active |
+| 🐳 **Container Registry** | Image storage | ✅ Active |
+| ☁️ **Cloud Run** | Serverless container execution | ✅ Running |
+| 📊 **Cloud Logging** | Centralized log management | ✅ Enabled |
+| 📈 **Cloud Monitoring** | Metrics and performance tracking | ✅ Enabled |
 
 #### Viewing in GCP Console
 
-To view and manage your deployed service:
+To view and manage your deployed service in **Google Cloud Console**:
 
-1. **Go to GCP Console**: https://console.cloud.google.com/run
-2. **Select your project**: `upgrade-478511`
-3. **Region**: `us-central1`
-4. **Service**: Click on `turbofan-rul-prediction`
+**🔗 Direct Links:**
+- **Cloud Run Services**: https://console.cloud.google.com/run?project=upgrade-478511
+- **Cloud Build History**: https://console.cloud.google.com/cloud-build/builds?project=upgrade-478511
+- **Cloud Logs**: https://console.cloud.google.com/logs?project=upgrade-478511
+- **Container Registry**: https://console.cloud.google.com/gcr?project=upgrade-478511
 
-From here you can:
-- View logs and metrics
-- Manage revisions
-- Configure autoscaling
-- Monitor requests and errors
-- Update environment variables
+**Manual Navigation:**
+1. Go to [Google Cloud Console](https://console.cloud.google.com)
+2. Select project: `upgrade-478511`
+3. Navigate to **Cloud Run**
+4. Click service: `turbofan-rul-prediction`
 
-**Direct Link**: [GCP Cloud Run Console](https://console.cloud.google.com/run?project=upgrade-478511)
+**Available in Console:**
+- 📋 Service details and URL
+- 📊 Revision history and traffic split
+- 📈 Metrics (requests, latency, errors)
+- 📝 Logs and debugging
+- ⚙️ Configuration and environment variables
+- 🔄 Autoscaling settings
+- 🌐 Custom domain mapping
 
 #### Deployment Screenshots
 
