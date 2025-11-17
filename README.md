@@ -672,6 +672,14 @@ To view and manage your deployed service in **Google Cloud Console**:
 
 #### Deployment Screenshots
 
+**🏗️ Cloud Build - Automated Docker Image Building:**
+
+![Cloud Build Pipeline](screenshots/cloud-build.png)
+
+**☁️ Cloud Run Service - Live Deployment:**
+
+![Cloud Run Service](screenshots/cloud-run-service.png)
+
 **Model Deployed on Google Cloud Run:**
 
 ![Model GCP Deployed](screenshots/model-gcp-deployed.png)
