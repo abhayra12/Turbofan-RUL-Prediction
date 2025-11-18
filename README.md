@@ -6,6 +6,20 @@
 [![GCP Cloud Run](https://img.shields.io/badge/GCP_Cloud_Run-deployed-brightgreen.svg)](https://console.cloud.google.com/run?project=upgrade-478511)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+## Tech stack
+
+- 🐍 **Python 3.11** — core language
+- 🔢 **NumPy** — numerical computing and array ops
+- 🐼 **pandas** — data manipulation and ETL
+- 🧠 **scikit-learn** — preprocessing, pipelines, evaluation
+- 🚀 **XGBoost** — production gradient boosting model
+- ⚡ **FastAPI** — high-performance API service
+- 🐳 **Docker** — containerization (multi-stage builds)
+- ☁️ **Google Cloud Run** — serverless deployment
+- 🏗️ **Cloud Build** — CI/CD builds & image publishing
+- 📦 **pyproject.toml / uv** — packaging & environment
+- 🐙 **GitHub** — source & CI integration
+
 **ML Zoomcamp 2025 - Midterm Project**
 
 A production-ready machine learning system for predicting the Remaining Useful Life (RUL) of turbofan engines. This project demonstrates a complete end-to-end ML pipeline with comprehensive data analysis, multiple model implementations, and cloud-ready deployment infrastructure.
